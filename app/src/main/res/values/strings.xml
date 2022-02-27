@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">APItoRecyclerview</string>
+
+    <string name="CallAPI"> Call API</string>
+    <string name="title"> Title</string>
+    <string name="message">Message</string>
+</resources>
