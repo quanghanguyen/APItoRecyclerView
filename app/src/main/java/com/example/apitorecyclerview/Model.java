@@ -1,21 +1,32 @@
 package com.example.apitorecyclerview;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 public class Model {
-
+    @SerializedName("page")
     String page;
+    @SerializedName("per_page")
     String per_page;
+    @SerializedName("total")
     String total;
+    @SerializedName("total_pages")
     String total_pages;
+    @SerializedName("data")
     ArrayList<data> data;
 
     public class data
     {
+        @SerializedName("id")
         String id;
+        @SerializedName("email")
         String email;
+        @SerializedName("first_name")
         String first_name;
+        @SerializedName("last_name")
         String last_name;
+        @SerializedName("avatar")
         String avatar;
 
         public String getId() {
