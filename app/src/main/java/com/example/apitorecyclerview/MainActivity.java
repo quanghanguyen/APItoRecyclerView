@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         for (Model.data data1 : data)
                         {
                             Log.e(TAG, "onResponse: emails : " + data1.getEmail() );
-                            arrayList.add(new Data(data1.getFirst_name(), data1.getFirst_name()));
+                            arrayList.add(new Data(data1.getFirst_name(), data1.getEmail()));
                         }
 
                         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(arrayList);
