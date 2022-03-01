@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,23 +20,19 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private Button btnCallAPI;
     private RecyclerView rcvData;
     private ArrayList<Data> arrayList;
+
+    private Button btnOpenAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnCallAPI = (Button) findViewById(R.id.callAPI);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
         arrayList = new ArrayList<>();
-
-
-        btnCallAPI.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnOpenAdd = (Button) findViewById(R.id.btnOpenAdd);
 
                 Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
                 Call<Model> call = methods.getAllData();
@@ -65,9 +62,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        btnOpenAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setContentView(R.layout.add_update_lay);
 
             }
         });
+
 
     }
 }

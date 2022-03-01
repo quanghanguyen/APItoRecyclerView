@@ -4,4 +4,9 @@
     <string name="CallAPI"> Call API</string>
     <string name="title"> Title</string>
     <string name="message">Message</string>
+
+    <string name="addUser">Add New User</string>
+    <string name="hintName"> Type Name here</string>
+    <string name="hintEmail">Type Email here</string>
+    <string name="btnAdd">Add</string>
 </resources>

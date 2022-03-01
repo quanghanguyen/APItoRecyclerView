@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:background="@android:color/darker_gray"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:id="@+id/tvAddUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/addUser"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="@string/hintName"
+        android:layout_below="@+id/tvAddUser"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"/>
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="@string/hintEmail"
+        android:layout_below="@+id/edtName"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnAdd"
+        android:layout_below="@+id/edtEmail"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"/>
+
+
+</RelativeLayout>
