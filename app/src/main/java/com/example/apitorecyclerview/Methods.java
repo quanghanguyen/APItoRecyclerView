@@ -5,7 +5,7 @@ import retrofit2.http.GET;
 
 public interface Methods {
 
-    @GET("api/user?page2")
+    @GET("api/users?page=2")
     Call<Model> getAllData();
 
 }
