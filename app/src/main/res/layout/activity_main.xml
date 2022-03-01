@@ -11,19 +11,19 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvData"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnOpenAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        app:backgroundTint="@android:color/holo_purple"
-        android:src="@drawable/plus"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/plus"
+        app:backgroundTint="@android:color/holo_purple" />
 
 
 

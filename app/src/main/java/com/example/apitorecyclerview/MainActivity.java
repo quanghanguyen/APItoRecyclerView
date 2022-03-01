@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -30,37 +32,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnOpenAdd = (Button) findViewById(R.id.btnOpenAdd);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
         arrayList = new ArrayList<>();
-        btnOpenAdd = (Button) findViewById(R.id.btnOpenAdd);
 
-                Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
-                Call<Model> call = methods.getAllData();
 
-                call.enqueue(new Callback<Model>() {
-                    @Override
-                    public void onResponse(Call<Model> call, Response<Model> response) {
-                        Log.e(TAG, "onResponse: code : " + response.code());
-                        ArrayList<Model.data> data = response.body().getData();
+        Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
+        Call<Model> call = methods.getAllData();
 
-                        for (Model.data data1 : data)
-                        {
-                            Log.e(TAG, "onResponse: emails : " + data1.getEmail() );
-                            arrayList.add(new Data(data1.getFirst_name(), data1.getEmail()));
-                        }
+        call.enqueue(new Callback<Model>() {
+            @Override
+            public void onResponse(Call<Model> call, Response<Model> response) {
+                Log.e(TAG, "onResponse: code : " + response.code());
+                ArrayList<Model.data> data = response.body().getData();
 
-                        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(arrayList);
-                        rcvData.setAdapter(recyclerAdapter);
-                        rcvData.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-                    }
+                for (Model.data data1 : data)
+                {
+                    Log.e(TAG, "onResponse: emails : " + data1.getEmail() );
+                    arrayList.add(new Data(data1.getFirst_name(), data1.getEmail()));
+                }
 
-                    @Override
-                    public void onFailure(Call<Model> call, Throwable t) {
+                RecyclerAdapter recyclerAdapter = new RecyclerAdapter(arrayList);
+                rcvData.setAdapter(recyclerAdapter);
+                rcvData.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+            }
 
-                        Log.e(TAG, "onFailure: " + t.getMessage());
+            @Override
+            public void onFailure(Call<Model> call, Throwable t) {
 
-                    }
-                });
+                Log.e(TAG, "onFailure: " + t.getMessage());
+
+            }
+        });
 
         btnOpenAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +71,38 @@ public class MainActivity extends AppCompatActivity {
 
                 Dialog dialog = new Dialog(MainActivity.this);
                 dialog.setContentView(R.layout.add_update_lay);
+
+                EditText edtName = dialog.findViewById(R.id.edtName);
+                EditText edtEmail = dialog.findViewById(R.id.edtEmail);
+                Button btnAdd = dialog.findViewById(R.id.btnAdd);
+
+                btnAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        String name = "", email = "";
+
+                        if (!edtName.getText().toString().equals("")) {
+                            name = edtName.getText().toString();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Please Enter Name!", Toast.LENGTH_SHORT).show();
+                        }
+
+                        if (!edtEmail.getText().toString().equals("")) {
+                            email = edtEmail.getText().toString();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Please Enter Email!", Toast.LENGTH_SHORT).show();
+                        }
+
+                        arrayList.add(new Data(name, email));
+
+
+
+
+                    }
+                });
+
+                dialog.show();
 
             }
         });
