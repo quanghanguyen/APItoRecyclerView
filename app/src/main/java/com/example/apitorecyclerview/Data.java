@@ -1,8 +1,11 @@
 package com.example.apitorecyclerview;
 
-public class Data {
+import com.google.gson.annotations.SerializedName;
 
+public class Data {
+    @SerializedName("title")
     private String title;
+    @SerializedName("message")
     private String message;
 
     public Data(String title, String message) {

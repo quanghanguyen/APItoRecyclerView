@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnCallAPI = (Button) findViewById(R.id.callAPI);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
-//      RecyclerAdapter recyclerAdapter = new RecyclerAdapter(arrayList);
-//      rcvData.setAdapter(recyclerAdapter);
         arrayList = new ArrayList<>();
 
 
