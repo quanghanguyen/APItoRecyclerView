@@ -136,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        t.schedule(tt, 0, 5);
-
+        t.schedule(tt, 0, 8);
     }
 }
