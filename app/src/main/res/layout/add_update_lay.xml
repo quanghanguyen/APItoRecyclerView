@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="280dp"
+    android:layout_height="350dp"
     android:background="@android:color/darker_gray"
     android:padding="10dp"
     >
@@ -19,25 +24,27 @@
 
     <EditText
         android:id="@+id/edtName"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="40dp"
         android:layout_below="@+id/tvAddUser"
         android:layout_marginTop="30dp"
         android:background="@color/white"
         android:hint="@string/hintName"
         android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
         android:textColorHint="@android:color/darker_gray" />
 
     <EditText
         android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="40dp"
         android:layout_below="@+id/edtName"
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:hint="@string/hintEmail"
         android:textColor="@color/black"
-        android:textColorHint="@android:color/darker_gray"/>
+        android:layout_centerHorizontal="true"
+        android:textColorHint="@android:color/darker_gray" />
 
     <Button
         android:id="@+id/btnAdd"
@@ -52,3 +59,5 @@
 
 
 </RelativeLayout>
+
+</LinearLayout>

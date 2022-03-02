@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rcvData;
     private ArrayList<Data> arrayList;
     private FloatingActionButton btnOpenAdd;
-
     private RecyclerAdapter recyclerAdapter;
 
     @Override
@@ -38,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
         btnOpenAdd = (FloatingActionButton) findViewById(R.id.btnOpenAdd);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
         arrayList = new ArrayList<>();
-
-        //recyclerAdapter = new RecyclerAdapter(arrayList);
-
 
         Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
         Call<Model> call = methods.getAllData();
@@ -57,11 +53,12 @@ public class MainActivity extends AppCompatActivity {
                     arrayList.add(new Data(data1.getFirst_name(), data1.getEmail()));
                 }
 
+                rcvData.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                //here
+                recyclerAdapter = new RecyclerAdapter(MainActivity.this, arrayList);
                 rcvData.setAdapter(recyclerAdapter);
 
-                recyclerAdapter = new RecyclerAdapter(arrayList);
 
-                rcvData.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
             }
 
@@ -114,10 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 dialog.show();
-
             }
         });
-
-
     }
 }

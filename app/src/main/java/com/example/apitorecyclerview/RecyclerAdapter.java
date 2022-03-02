@@ -1,6 +1,8 @@
 package com.example.apitorecyclerview;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +22,11 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
     private ArrayList<Data> arrayList;
+    private Context context;
 
-    public RecyclerAdapter(ArrayList<Data> arrayList){
+    public RecyclerAdapter(Context context, ArrayList<Data> arrayList){
         this.arrayList = arrayList;
+        this.context = context;
 
     }
 
@@ -46,6 +50,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.add_update_lay);
 
                 EditText edtName = dialog.findViewById(R.id.edtName);
                 EditText edtEmail = dialog.findViewById(R.id.edtEmail);
@@ -56,7 +61,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 tvTitle.setText("Update Infomation");
 
                 edtName.setText(arrayList.get(position).getTitle());
-                edtName.setText(arrayList.get(position).getMessage());
+                edtEmail.setText(arrayList.get(position).getMessage());
 
                 btnAdd.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -79,8 +84,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                         arrayList.set(position, new Data(name, email));
                         notifyItemChanged(position);
 
+                        dialog.dismiss();
+
                     }
                 });
+
+                dialog.show();
 
             }
         });
