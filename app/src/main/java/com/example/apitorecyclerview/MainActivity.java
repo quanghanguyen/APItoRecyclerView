@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
         arrayList = new ArrayList<>();
 
-        recyclerAdapter = new RecyclerAdapter(arrayList);
+        //recyclerAdapter = new RecyclerAdapter(arrayList);
 
 
         Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
@@ -57,9 +57,12 @@ public class MainActivity extends AppCompatActivity {
                     arrayList.add(new Data(data1.getFirst_name(), data1.getEmail()));
                 }
 
-                //RecyclerAdapter recyclerAdapter = new RecyclerAdapter(arrayList);
                 rcvData.setAdapter(recyclerAdapter);
+
+                recyclerAdapter = new RecyclerAdapter(arrayList);
+
                 rcvData.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
             }
 
             @Override
