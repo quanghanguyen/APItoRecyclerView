@@ -1,7 +1,9 @@
 package com.example.apitorecyclerview;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,8 +59,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 Button btnAdd = dialog.findViewById(R.id.btnAdd);
                 TextView tvTitle = dialog.findViewById(R.id.tvAddUser);
 
-                btnAdd.setText("Update");
-                tvTitle.setText("Update Infomation");
+                btnAdd.setText(R.string.btnUpdate);
+                tvTitle.setText(R.string.tvUpdate);
 
                 edtName.setText(arrayList.get(position).getTitle());
                 edtEmail.setText(arrayList.get(position).getMessage());
@@ -91,6 +93,35 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
                 dialog.show();
 
+            }
+        });
+
+        holder.rlInfo.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                // Alert Dialog:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                        .setTitle("Delete")
+                        .setMessage("Do you want to remove this Item?")
+                        .setIcon(R.drawable.ic_baseline_delete_24)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+
+
+
+                return true;
             }
         });
 

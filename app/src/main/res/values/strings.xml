@@ -9,4 +9,7 @@
     <string name="hintName"> Type Name here</string>
     <string name="hintEmail">Type Email here</string>
     <string name="btnAdd">Add</string>
+
+    <string name="btnUpdate">Update</string>
+    <string name="tvUpdate"> Update Infomation</string>
 </resources>
