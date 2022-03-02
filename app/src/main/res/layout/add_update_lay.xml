@@ -14,7 +14,8 @@
         android:layout_centerHorizontal="true"
         android:text="@string/addUser"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/edtName"
@@ -23,7 +24,8 @@
         android:hint="@string/hintName"
         android:layout_below="@+id/tvAddUser"
         android:layout_marginTop="30dp"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/edtEmail"
@@ -32,7 +34,8 @@
         android:hint="@string/hintEmail"
         android:layout_below="@+id/edtName"
         android:layout_marginTop="20dp"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/btnAdd"
@@ -42,7 +45,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
-        android:text="@string/btnAdd" />
+        android:text="@string/btnAdd"
+        android:textColor="@color/white"/>
 
 
 </RelativeLayout>

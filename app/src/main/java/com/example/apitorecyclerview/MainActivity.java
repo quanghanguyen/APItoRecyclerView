@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
@@ -25,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rcvData;
     private ArrayList<Data> arrayList;
 
-    private Button btnOpenAdd;
+    private FloatingActionButton btnOpenAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnOpenAdd = (Button) findViewById(R.id.btnOpenAdd);
+        btnOpenAdd = (FloatingActionButton) findViewById(R.id.btnOpenAdd);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
         arrayList = new ArrayList<>();
 
@@ -95,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         arrayList.add(new Data(name, email));
+                        recyclerAdapter.notifyDataSetChanged();
+
 
 
 
