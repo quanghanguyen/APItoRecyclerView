@@ -110,15 +110,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
+                                arrayList.remove(position);
+                                notifyItemRemoved(position);
+
                             }
                         })
-                        .setPositiveButton("No", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
                             }
                         });
 
+
+                builder.show();
 
 
                 return true;
