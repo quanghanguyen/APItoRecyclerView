@@ -32,19 +32,20 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton btnOpenAdd;
     private RecyclerAdapter recyclerAdapter;
 
-//    private ProgressBar pb;
-//    private int counter = 0;
+    private ProgressBar pb;
+    private int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        progress();
+        progress();
 
         btnOpenAdd = (FloatingActionButton) findViewById(R.id.btnOpenAdd);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
         arrayList = new ArrayList<>();
+
 
         Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
         Call<Model> call = methods.getAllData();
@@ -120,20 +121,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    private void progress() {
-//        pb = (ProgressBar) findViewById(R.id.pb);
-//        Timer t = new Timer();
-//        TimerTask tt = new TimerTask() {
-//            @Override
-//            public void run() {
-//                counter++;
-//                pb.setProgress(counter);
-//
-//                if (counter == 100) {
-//                    t.cancel();
-//                }
-//            }
-//        };
-//        t.schedule(tt, 0, 30);
-//    }
+    private void progress() {
+        pb = (ProgressBar) findViewById(R.id.pb);
+        Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                counter++;
+                pb.setProgress(counter);
+
+                if (counter == 100) {
+                    t.cancel();
+                    pb.setVisibility(View.INVISIBLE);
+                }
+            }
+        };
+        t.schedule(tt, 0, 5);
+
+    }
 }
