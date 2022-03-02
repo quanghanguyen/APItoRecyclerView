@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btnOpenAdd = (FloatingActionButton) findViewById(R.id.btnOpenAdd);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
         arrayList = new ArrayList<>();
+        pb = (ProgressBar) findViewById(R.id.pb);
 
 
         Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<Model>() {
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
+                pb.setVisibility(View.GONE);
+                rcvData.setVisibility(View.VISIBLE);
                 Log.e(TAG, "onResponse: code : " + response.code());
                 ArrayList<Model.data> data = response.body().getData();
 
@@ -132,10 +135,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (counter == 100) {
                     t.cancel();
-                    pb.setVisibility(View.INVISIBLE);
                 }
             }
         };
-        t.schedule(tt, 0, 8);
+        t.schedule(tt, 0, 100);
     }
 }
