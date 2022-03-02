@@ -10,12 +10,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,10 +32,15 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton btnOpenAdd;
     private RecyclerAdapter recyclerAdapter;
 
+//    private ProgressBar pb;
+//    private int counter = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        progress();
 
         btnOpenAdd = (FloatingActionButton) findViewById(R.id.btnOpenAdd);
         rcvData = (RecyclerView) findViewById(R.id.rcvData);
@@ -57,9 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 //here
                 recyclerAdapter = new RecyclerAdapter(MainActivity.this, arrayList);
                 rcvData.setAdapter(recyclerAdapter);
-
-
-
             }
 
             @Override
@@ -114,4 +119,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+//    private void progress() {
+//        pb = (ProgressBar) findViewById(R.id.pb);
+//        Timer t = new Timer();
+//        TimerTask tt = new TimerTask() {
+//            @Override
+//            public void run() {
+//                counter++;
+//                pb.setProgress(counter);
+//
+//                if (counter == 100) {
+//                    t.cancel();
+//                }
+//            }
+//        };
+//        t.schedule(tt, 0, 30);
+//    }
 }
