@@ -15,7 +15,8 @@
         android:text="@string/addUser"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        />
 
     <EditText
         android:id="@+id/edtName"
@@ -25,17 +26,19 @@
         android:layout_below="@+id/tvAddUser"
         android:layout_marginTop="30dp"
         android:background="@color/white"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray"/>
 
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="@string/hintEmail"
         android:layout_below="@+id/edtName"
         android:layout_marginTop="20dp"
         android:background="@color/white"
-        android:textColor="@color/black"/>
+        android:hint="@string/hintEmail"
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray"/>
 
     <Button
         android:id="@+id/btnAdd"

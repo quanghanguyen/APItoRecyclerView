@@ -97,7 +97,12 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         arrayList.add(new Data(name, email));
-                        recyclerAdapter.notifyDataSetChanged();
+
+                        recyclerAdapter.notifyItemInserted(arrayList.size()-1);
+
+                        rcvData.scrollToPosition(arrayList.size()-1);
+
+
 
 
 
